@@ -1,6 +1,5 @@
 import csv
 import random
-import time
 
 good_answers = ["Iranien", "Saison 2019/2020",
                 "N°40 Mondial;2012", "Il change parfois de main", "Butterfly"]

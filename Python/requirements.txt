@@ -1,0 +1,4 @@
+pytube
+PIL
+qrcode
+instaloader
