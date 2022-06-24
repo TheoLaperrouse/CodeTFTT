@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
   <title>Test API FFTT</title>
-  <link href="table.css" rel="stylesheet">
+  <style>
+	th {
+		background-color: #1E73B4;
+		color: white;
+	}
+	tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
 </head>
 <body>
  <?php

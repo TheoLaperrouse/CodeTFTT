@@ -1,8 +1,14 @@
-	<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-  <title>iframe Classement Pro B</title>
-  <link href="table.css" rel="stylesheet">
+  <style>
+	th {
+		background-color: #1E73B4;
+		color: white;
+	}
+	tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+  <title>Classement Pro B</title>
 </head>
 <body>
  	<?php

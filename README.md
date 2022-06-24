@@ -2,11 +2,12 @@
 
 ## Principe
 
-Plusieurs scripts utilisés pour le club de tennis de table de Thorigné Fouillard. (PHP, Python, Shell)
+Scripts utilisés pour le club de Tennis de Table de Thorigné Fouillard en Python et en Shell.
+Fichiers PHP utilisés sur le Wordpress du Club.
 
 ## Python
 
-4 Scripts :
+5 Scripts :
 - **cropVideo** : récupérer un extrait d'une vidéo ( = rogner une vidéo)
 - **generateQRCode** : génère un QRCode à partir d'un lien
 - **randomPickerQuizz** : récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
@@ -60,3 +61,9 @@ Exécuter le script shell :
 ```
 
 puis suivre les instructions sur le terminal
+
+## PHP 
+
+2 Fichiers :
+- **proBRanking** : Récupération du classement de la Pro B sous forme de tableau
+- **exampleApiFFTT** : exemples de requêtes possibles sur l'api de la Fédération Française de Tennis de Table
