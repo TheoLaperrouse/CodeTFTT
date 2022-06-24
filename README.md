@@ -7,10 +7,11 @@ Plusieurs scripts utilisés pour le club de tennis de table de Thorigné Fouilla
 ## Python
 
 4 Scripts :
-- generateQRCode : génère un QRCode à partir d'un lien
-- randomPickerQuizz : récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
-- youtubeDownloader : télécharger des vidéos youtube à partir d'un lien
-- instaDownloader : télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
+- **cropVideo** : récupérer un extrait d'une vidéo ( = rogner une vidéo)
+- **generateQRCode** : génère un QRCode à partir d'un lien
+- **randomPickerQuizz** : récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
+- **youtubeDownloader** : télécharger des vidéos youtube à partir d'un lien
+- **instaDownloader** : télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
 
 ### Utilisation :
 
@@ -36,7 +37,7 @@ puis suivre les instructions sur le terminal
 ## Shell 
 
 1 Script :
-- instaDownloader : télécharger des photos/vidéos depuis un profil instagram public. Bloqué après un trop grand nombre de requêtes.
+- **instaDownloader** : télécharger des photos/vidéos depuis un profil instagram public. Bloqué après un trop grand nombre de requêtes.
 
 ### Utilisation :
 
