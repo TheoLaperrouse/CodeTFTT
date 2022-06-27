@@ -7,8 +7,9 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 
 ## Python
 
-5 Scripts :
+6 Scripts :
 - **cropVideo** : récupérer un extrait d'une vidéo ( = rogner une vidéo)
+- **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
 - **generateQRCode** : génère un QRCode à partir d'un lien
 - **randomPickerQuizz** : récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
 - **youtubeDownloader** : télécharger des vidéos youtube à partir d'un lien
