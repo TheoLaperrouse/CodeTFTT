@@ -8,14 +8,14 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 ## Python
 
 8 Scripts :
-- **cropVideo** : récupérer un extrait d'une vidéo ( = rogner une vidéo)
+- **cropVideo** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
 - **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
-- **generateQRCode** : génère un QRCode à partir d'un lien
-- **randomPickerQuizz** : récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
-- **youtubeDownloader** : télécharger des vidéos youtube à partir d'un lien
+- **generateQRCode** : Génère un QRCode à partir d'un lien
+- **randomPickerQuizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
+- **youtubeDownloader** : Télécharger des vidéos youtube à partir d'un lien
 - **getLastMatches** : Récupère le résultat du dernier match de toutes les équipes du TFTT
 - **getLastMatches** : Récupère les prochainns matchs des équipes du TFTT
-- **instaDownloader** : télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
+- **instaDownloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
 
 ### Utilisation :
 
@@ -41,7 +41,7 @@ puis suivre les instructions sur le terminal
 ## Shell 
 
 1 Script :
-- **instaDownloader** : télécharger des photos/vidéos depuis un profil instagram public. Bloqué après un trop grand nombre de requêtes.
+- **instaDownloader** : Télécharger des photos/vidéos depuis un profil instagram public. Bloqué après un trop grand nombre de requêtes.
 
 ### Utilisation :
 
@@ -70,9 +70,3 @@ puis suivre les instructions sur le terminal
 2 Fichiers :
 - **proBRanking** : Récupération du classement de la Pro B sous forme de tableau
 - **exampleApiFFTT** : exemples de requêtes possibles sur l'api de la Fédération Française de Tennis de Table
-
-## Idées de scripts : 
-
-En cours, via le nodeJs (back de l'appli), utiliser requests : 
-- **lastMatches** : Récupération des résultats des derniers matchs de chaque équipes
-- **nextMatches** : Récupération des prochaines rencontres de chaque équipes
