@@ -8,13 +8,13 @@
 	}
 	tr:nth-child(even) {background-color: #f2f2f2;}
   </style>
-  <title>Classement Pro B</title>
+  <title>Classement Pro A</title>
 </head>
 <body>
  	<?php
 	include("API_FFTT.php");
 	$connexion = new API_FFTT();
-	$poulePro = ($connexion->getPouleClassement('37884','207068'));
+	$poulePro = ($connexion->getPouleClassement('106853','437620'));
 	echo "<table>";
  	echo "<tr><th>Équipe</th><th>Points</th><th>MJ</th></tr>";
 	foreach($poulePro as $pro=>$equipe){
