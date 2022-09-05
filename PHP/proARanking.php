@@ -19,7 +19,7 @@
  	echo "<tr><th>Équipe</th><th>Points</th><th>MJ</th></tr>";
 	foreach($poulePro as $pro=>$equipe){
 		echo '<tr>';
-   		echo '<td>'.$equipe['equipe'].'</td><td align="center">'.$equipe['pts'].'</td><td align="center">'.$equipe['joue'].'</td>';
+   		echo '<td>'.substr($equipe['equipe'],0,-2).'</td><td align="center">'.$equipe['pts'].'</td><td align="center">'.$equipe['joue'].'</td>';
 
    		echo '</tr>';
 	}	
