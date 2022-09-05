@@ -9,6 +9,7 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 
 8 Scripts :
 - **cropVideo** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
+- **HelloAssoAPI** : Utilisation de l'API de HelloAsso pour récupérer des informations
 - **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
 - **generateQRCode** : Génère un QRCode à partir d'un lien
 - **randomPickerQuizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
@@ -68,5 +69,5 @@ puis suivre les instructions sur le terminal
 ## PHP 
 
 2 Fichiers :
-- **proBRanking** : Récupération du classement de la Pro B sous forme de tableau
+- **proARanking** : Récupération du classement de la Pro A sous forme de tableau
 - **exampleApiFFTT** : exemples de requêtes possibles sur l'api de la Fédération Française de Tennis de Table

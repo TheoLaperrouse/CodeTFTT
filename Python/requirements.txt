@@ -2,3 +2,4 @@ pytube
 PIL
 qrcode
 instaloader
+helloasso-apiv5
