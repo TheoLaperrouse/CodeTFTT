@@ -17,6 +17,7 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 - **getLastMatches** : Récupère le résultat du dernier match de toutes les équipes du TFTT
 - **getLastMatches** : Récupère les prochainns matchs des équipes du TFTT
 - **instaDownloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
+- **exportTableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
 
 ### Utilisation :
 
