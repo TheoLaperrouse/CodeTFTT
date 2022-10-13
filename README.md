@@ -7,15 +7,16 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 
 ## Python
 
-8 Scripts :
+11 Scripts :
 - **cropVideo** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
 - **HelloAssoAPI** : Utilisation de l'API de HelloAsso pour récupérer des informations
 - **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
 - **generateQRCode** : Génère un QRCode à partir d'un lien
 - **randomPickerQuizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
 - **youtubeDownloader** : Télécharger des vidéos youtube à partir d'un lien
+- **bestPerf** : Récupérer la meilleure performance du dernier WE de compétition
 - **getLastMatches** : Récupère le résultat du dernier match de toutes les équipes du TFTT
-- **getLastMatches** : Récupère les prochainns matchs des équipes du TFTT
+- **getNextMatches** : Récupérer les prochainns matchs des équipes du TFTT
 - **instaDownloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
 - **exportTableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
 
