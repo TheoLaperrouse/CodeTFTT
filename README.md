@@ -7,9 +7,8 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 
 ## Python
 
-11 Scripts :
+10 Scripts :
 - **cropVideo** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
-- **HelloAssoAPI** : Utilisation de l'API de HelloAsso pour récupérer des informations
 - **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
 - **generateQRCode** : Génère un QRCode à partir d'un lien
 - **randomPickerQuizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
