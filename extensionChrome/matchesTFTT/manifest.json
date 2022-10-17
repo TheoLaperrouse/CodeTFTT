@@ -1,0 +1,11 @@
+{
+    "name": "LastMatchesTFTT",
+    "version": "1.0.0",
+    "description": "This is an extension to look up the last matches of TFTT",
+    "manifest_version": 3,
+    "author": "Théo Laperrouse",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Last Matches TFTT"
+    }
+}

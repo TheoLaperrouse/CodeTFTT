@@ -1,4 +1,3 @@
-from operator import ne
 from PIL import Image
 
 

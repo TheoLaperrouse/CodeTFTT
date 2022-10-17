@@ -11,7 +11,6 @@ def getPlayers():
     players = [player for player in playersWithPoints if player['licence'] in keepListNumLic]
     return players
 
-
 if __name__ == '__main__':
     allVictories = []
     maxDate = datetime.now() - timedelta(days = 7)

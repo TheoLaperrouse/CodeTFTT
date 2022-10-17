@@ -72,3 +72,14 @@ puis suivre les instructions sur le terminal
 2 Fichiers :
 - **proARanking** : Récupération du classement de la Pro A sous forme de tableau
 - **exampleApiFFTT** : exemples de requêtes possibles sur l'api de la Fédération Française de Tennis de Table
+
+## Extension Chrome
+
+Sur Chrome/Brave, aller dans gérer mes extensions : 
+- Activer le mode développeur
+- Charger l'extension non embarqué
+- Sélectionner le dossier contenant l'extension Chrome (exemple : matchesTFTT)
+- Mettre l'extension en 'pinned' pour un accès plus rapide
+
+1 Extension : 
+- **matchesTFTT** : Récupération des anciens et des prochains matches
