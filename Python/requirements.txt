@@ -3,4 +3,4 @@ qrcode
 instaloader
 helloasso-apiv5
 xlsxwriter
-PIL
+moviepy

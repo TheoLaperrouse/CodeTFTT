@@ -9,7 +9,6 @@ def download_videos(url: str, outpath: str = "./"):
     print(
         f'Le téléchargement de la vidéo est fini, vous pouvez la retrouver dans le dossier {outpath}')
 
-
 if __name__ == "__main__":
     url = input("Renseigner l'url de la vidéo à télécharger : ")
     download_videos(
