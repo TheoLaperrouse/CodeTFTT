@@ -4,3 +4,5 @@ instaloader
 helloasso-apiv5
 xlsxwriter
 moviepy
+pathlib
+TikTokApi
