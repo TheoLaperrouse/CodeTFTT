@@ -1,17 +1,3 @@
-function onOpen() {
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('Mettre à jour')
-      .addItem('Catégories', 'updateCategories')
-      .addItem('Brûlage', 'updateBurnings')
-      .addToUi();
-}
-
-function deleteColumn(sheet, colonne, line) {
-  var range = sheet.getRange(`${colonne}2:${colonne}${line}`);
-  range.clearContent();
-}
-
-
 function updateCategories() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName('Joueurs');
@@ -70,7 +56,7 @@ function updateBurnings() {
       brulage[nom.trim()] = Math.min(...brulageObject[nom])
     }
   })
-  Logger.log(brulageObject)
+  
   var joueurs = ss.getSheetByName('Joueurs');  
   var maxRow = joueurs.getMaxRows()
   var nomJoueurs = joueurs.getRange(`A2:A${maxRow}`).getValues();
@@ -85,5 +71,4 @@ function updateBurnings() {
     }
     compteur += 1;
   })
-
 }
