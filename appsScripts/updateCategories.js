@@ -1,0 +1,89 @@
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Mettre à jour')
+      .addItem('Catégories', 'updateCategories')
+      .addItem('Brûlage', 'updateBurnings')
+      .addToUi();
+}
+
+function deleteColumn(sheet, colonne, line) {
+  var range = sheet.getRange(`${colonne}2:${colonne}${line}`);
+  range.clearContent();
+}
+
+
+function updateCategories() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Joueurs');
+  var response = UrlFetchApp.fetch('https://tftt.barais.fr/players/club/03350060', {'muteHttpExceptions': true});
+  var players = JSON.parse(response.getContentText());
+  var numToCat = {}
+  
+  players.map(function(player) {
+    numToCat[player.licence] = player.cat;
+  });
+  var maxRow = sheet.getMaxRows()
+  let numLicences = sheet.getRange(`C2:C${maxRow}`).getValues();
+  compteur = 2;
+
+  deleteColumn(sheet,'H',maxRow)
+
+  numLicences.map(function(numLicence) {
+    if(numLicence != ''){
+      sheet.getRange(compteur,8).setValue(numToCat[numLicence]);
+    }
+    compteur += 1;
+  });
+}
+
+
+function updateBurnings() {
+  var now = new Date()
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  
+  var sheetMatches = ss.getSheetByName('Rencontres');  
+  var maxRow = sheetMatches.getMaxRows()
+  let rencontres = sheetMatches.getRange(`A2:J${maxRow}`).getValues().filter(rencontre => rencontre[0] != '');
+  let brulageObject ={}
+
+  rencontres.forEach(function(rencontre) {
+    if (now.valueOf() > rencontre[0].valueOf()) {
+      for(var joueur = 6; joueur <= 9; joueur = joueur + 1){
+        var nom = rencontre[joueur];
+        var numeroEquipe = rencontre[2];
+        if(rencontre[joueur] !== ''){
+          if(!Object.keys(brulageObject).includes(nom)) {
+            brulageObject[nom] = [numeroEquipe]
+          }
+          else{
+            brulageObject[rencontre[joueur]].push(numeroEquipe)
+          }
+        }
+      }
+    }
+  })
+
+  brulage = {}
+
+  Object.keys(brulageObject).forEach(function(nom){
+    if(brulageObject[nom].length >= 2){
+      brulage[nom.trim()] = Math.min(...brulageObject[nom])
+    }
+  })
+  Logger.log(brulageObject)
+  var joueurs = ss.getSheetByName('Joueurs');  
+  var maxRow = joueurs.getMaxRows()
+  var nomJoueurs = joueurs.getRange(`A2:A${maxRow}`).getValues();
+  
+  deleteColumn(joueurs,'Q',maxRow)
+
+  var compteur = 2;
+
+  nomJoueurs.forEach(function(nom){
+    if(Object.keys(brulage).includes(nom[0])){
+      joueurs.getRange(compteur,17).setValue(brulage[nom]); 
+    }
+    compteur += 1;
+  })
+
+}
