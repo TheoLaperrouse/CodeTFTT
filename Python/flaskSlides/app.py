@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def reloadPage():
     pyautogui.press('f5')
+    # Temps que la page s'actualise
     time.sleep(2)
     pyautogui.press('f11')
     return "OK"

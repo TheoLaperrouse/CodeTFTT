@@ -1,9 +1,9 @@
-function getMatches() {
+function getMatchesWithJoueurs() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName('Rencontres');
   compteur = 2
   const regex = /(THORIGNE-FOUILLARD TT)|(THORIGNE FOUILLARD TT)|^(THORIGNE TT)|^(TFTT)/;
-  var response = UrlFetchApp.fetch('https://tftt.barais.fr/teams/allmatches/numclub=03350060/phase=1', {'muteHttpExceptions': true});
+  var response = UrlFetchApp.fetch('https://tftt.barais.fr/teams/allmatches/phase=1/joueurs=true', {'muteHttpExceptions': true});
   var matches = JSON.parse(response.getContentText());
   matches.map(function(match) {
     const numEquipe = match.equipeA.match(regex) ? match.equipeA.match(/\d+/g).join('') : match.equipeB.match(/\d+/g).join('')
@@ -15,6 +15,15 @@ function getMatches() {
     if(match.scoreA !== ''){
       sheet.getRange(compteur,5).setValue(match.equipeA.match(regex) && match.scoreA >= match.scoreB ? 'TRUE' : 'FALSE');
       sheet.getRange(compteur,6).setValue(`${match.scoreA}/${match.scoreB}`);
+    }
+    const joueurs =  match.equipeA.match(regex) ? match.joueursA ?? [] : match.joueursB?? []
+    if(joueurs != []){
+      columnIndex = 7
+      for(var index = 0; index <= 3; index = index + 1) {
+        if(joueurs.length > index && joueurs[index] != ''){
+          sheet.getRange(compteur,columnIndex + index).setValue(joueurs[index]);
+        } 
+      }
     }
     compteur += 1;
   })

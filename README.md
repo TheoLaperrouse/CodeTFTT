@@ -83,3 +83,12 @@ Sur Chrome/Brave, aller dans gérer mes extensions :
 
 1 Extension : 
 - **matchesTFTT** : Récupération des anciens et des prochains matches
+
+## AppScripts
+
+Scripts visant à la modification de feuilles GoogleSheet (Voir Extensions -> AppsScript)
+
+3 scripts : 
+- getData : Récupération de toutes les rencontres de la phase avec les joueurs pour les matches déjà joués
+- updateData : Met à jour les catégories et le brulâge selon les données de rencontres
+- utils : Scripts facilitant l'utilisation
