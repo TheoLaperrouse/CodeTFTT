@@ -53,10 +53,13 @@ function updateBurnings() {
 
   Object.keys(brulageObject).forEach(function(nom){
     if(brulageObject[nom].length >= 2){
-      brulage[nom.trim()] = Math.min(...brulageObject[nom])
+      triEquipe = brulageObject[nom].sort(function(a,b){
+        return a - b
+      })
+      // On tri puis on prend le deuxième élément
+      brulage[nom.trim()] = triEquipe[1]
     }
   })
-  
   var joueurs = ss.getSheetByName('Joueurs');  
   var maxRow = joueurs.getMaxRows()
   var nomJoueurs = joueurs.getRange(`A2:A${maxRow}`).getValues();

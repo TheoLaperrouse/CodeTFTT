@@ -7,7 +7,7 @@ function getMatchesWithJoueurs() {
   var matches = JSON.parse(response.getContentText());
   matches.map(function(match) {
     const numEquipe = match.equipeA.match(regex) ? match.equipeA.match(/\d+/g).join('') : match.equipeB.match(/\d+/g).join('')
-    const numEquipeFinal =  match.equipeA.match(/^Féminines/) ? parseInt(numEquipe) + 15 : numEquipe
+    const numEquipeFinal =  match.equipeA.match(/^Féminines/) || match.equipeB.match(/^Féminines/)? parseInt(numEquipe) + 15 : numEquipe
     sheet.getRange(compteur,1).setValue(match.date);
     sheet.getRange(compteur,2).setValue(`${match.equipeA.replace(regex, 'TFTT')} vs ${match.equipeB.replace(regex, 'TFTT')}`);
     sheet.getRange(compteur,3).setValue(numEquipeFinal);
@@ -15,14 +15,14 @@ function getMatchesWithJoueurs() {
     if(match.scoreA !== ''){
       sheet.getRange(compteur,5).setValue(match.equipeA.match(regex) && match.scoreA >= match.scoreB ? 'TRUE' : 'FALSE');
       sheet.getRange(compteur,6).setValue(`${match.scoreA}/${match.scoreB}`);
-    }
-    const joueurs =  match.equipeA.match(regex) ? match.joueursA ?? [] : match.joueursB?? []
-    if(joueurs != []){
-      columnIndex = 7
-      for(var index = 0; index <= 3; index = index + 1) {
-        if(joueurs.length > index && joueurs[index] != ''){
-          sheet.getRange(compteur,columnIndex + index).setValue(joueurs[index]);
-        } 
+      const joueurs =  match.equipeA.match(regex) ? match.joueursA: match.joueursB
+      if(joueurs && joueurs != []){
+        columnIndex = 7
+        for(var index = 0; index <= 3; index = index + 1) {
+          if(joueurs.length > index && joueurs[index] != ''){
+            sheet.getRange(compteur,columnIndex + index).setValue(joueurs[index]);
+          } 
+        }
       }
     }
     compteur += 1;
