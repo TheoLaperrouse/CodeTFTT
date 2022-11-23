@@ -7,36 +7,39 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 
 ## Python
 
-10 Scripts :
-- **cropVideo** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
-- **jpegToPng** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
-- **generateQRCode** : Génère un QRCode à partir d'un lien
-- **randomPickerQuizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
-- **youtubeDownloader** : Télécharger des vidéos youtube à partir d'un lien
-- **bestPerf** : Récupérer la meilleure performance du dernier WE de compétition
-- **getLastMatches** : Récupère le résultat du dernier match de toutes les équipes du TFTT
-- **getNextMatches** : Récupérer les prochainns matchs des équipes du TFTT
-- **instaDownloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
-- **exportTableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
+11 Scripts :
+- **crop_video** : Récupérer un extrait d'une vidéo ( = rogner une vidéo)
+- **jpeg_to_png** : Convertir une image jpeg en png ( = remplacer un fond blanc par du transparent)
+- **generate_qr_code** : Génère un QRCode à partir d'un lien
+- **random_picker_quizz** : Récupère un gagnant aléatoire à partir d'un csv d'export de GoogleForm
+- **youtube_downloader** : Télécharger des vidéos youtube à partir d'un lien
+- **best_perf** : Récupérer la meilleure performance du dernier WE de compétition
+- **get_last_matches** : Récupère le résultat du dernier match de toutes les équipes du TFTT
+- **get_next_matches** : Récupérer les prochainns matchs des équipes du TFTT
+- **insta_downloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
+- **export_tableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
+-  **flaskSlides/app.py** : Script permettant de faire tourner un serveur web sur la machine, incluant des commandes pour changer les diapositives à distance
+
+Ajout de pylint et precommit pour l'analyse statique du code Python
 
 ### Utilisation :
 
-Accèder au dossier Python:
+Installer les librairies requises à la racine du projet:
+
+```sh
+pip install -r requirements.txt
+```
+
+Accéder au dossier Python:
 
 ```sh
 cd Python
 ```
 
-Installer les librairies requises :
-
-```sh
-pip3 install -r requirements.txt
-```
-
 Lancer un des scripts : 
 
 ```sh
-python3 nomDuScript.py
+python3 nom_du_script.py
 ```
 puis suivre les instructions sur le terminal
 
