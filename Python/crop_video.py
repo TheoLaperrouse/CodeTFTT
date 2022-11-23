@@ -1,9 +1,11 @@
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 from pathlib import Path
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+
 
 if __name__ == '__main__':
     path = input(
-        "Quelle est le nom du fichier (avec extension) (exemple : youtubeVideos/video.mp4 ou video.mp4) : ")
+        "Quelle est le nom du fichier (avec extension)"\
+            "(exemple : youtubeVideos/video.mp4 ou video.mp4) : ")
     name_file = path.split('/')[-1]
     start_time = int(input("Début de l'extrait (en seconde) : "))
     end_time = int(input("Fin de l'extrait (en seconde) : "))

@@ -6,3 +6,5 @@ xlsxwriter
 moviepy
 pathlib
 TikTokApi
+pre-commit
+pylint
