@@ -8,3 +8,5 @@ pathlib
 TikTokApi
 pre-commit
 pylint
+flask
+pyautogui
