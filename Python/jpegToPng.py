@@ -17,7 +17,6 @@ def convert_jpeg_to_png(img_name):
     img.save(new_img_name, "PNG")
     return new_img_name
 
-
 if __name__ == "__main__":
     img_name = input("Renseigner le nom de votre image (avec l'extension) : ")
     new_img_name = convert_jpeg_to_png(img_name)

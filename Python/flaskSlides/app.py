@@ -8,18 +8,18 @@ app = Flask(__name__)
 @app.route("/")
 def reloadPage():
     pyautogui.press('f5')
-    # Temps que la page s'actualise
+    # Temps pour que la page s'actualise
     time.sleep(2)
     pyautogui.press('f11')
-    return "OK"
+    return "Page refreshed"
 
 
 @app.route("/slides/<number>")
 def goToSlide(number):
-    for i in number:
-        pyautogui.press(i)
+    for digit in number:
+        pyautogui.press(digit)
     pyautogui.press('enter')
-    return f"OK slide = {number}"
+    return f"Slide {number} activate"
 
 
 if __name__ == "__main__":

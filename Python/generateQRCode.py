@@ -1,5 +1,4 @@
 import qrcode
 
-lien = input('Renseignez votre lien : ')
-img = qrcode.make(lien)
-img.save("QRCode.png")
+if __name__ == '__main__':
+    qrcode.make(input('Renseignez votre lien : ')).save("QRCode.png")

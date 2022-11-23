@@ -29,4 +29,5 @@ if __name__ == '__main__':
                 #     licenceNum.append(row[0])
                 write_line(worksheet,row_compteur, row)  
                 row_compteur += 1
+                
     workbook.close()
