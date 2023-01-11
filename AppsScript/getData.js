@@ -3,7 +3,7 @@ function getMatchesWithJoueurs() {
   var sheet = ss.getSheetByName('Rencontres');
   compteur = 2
   const regex = /(THORIGNE-FOUILLARD TT)|(THORIGNE FOUILLARD TT)|^(THORIGNE TT)|^(TFTT)/;
-  var response = UrlFetchApp.fetch('https://tftt.barais.fr/teams/allmatches/phase=1/joueurs=true', {'muteHttpExceptions': true});
+  var response = UrlFetchApp.fetch('https://tftt.barais.fr/teams/allmatches/phase=2/joueurs=true', {'muteHttpExceptions': true});
   var matches = JSON.parse(response.getContentText());
   matches.map(function(match) {
     const numEquipe = match.equipeA.match(regex) ? match.equipeA.match(/\d+/g).join('') : match.equipeB.match(/\d+/g).join('')
