@@ -3,7 +3,9 @@
 ## Principe
 
 Scripts utilisés pour le club de Tennis de Table de Thorigné Fouillard en Python et en Shell.
-Fichiers PHP utilisés sur le Wordpress du Club.
+Fichiers PHP utilisés sur le Wordpress du Club :
+
+https://thorigne-tt.net/
 
 ## Python
 
@@ -18,7 +20,7 @@ Fichiers PHP utilisés sur le Wordpress du Club.
 - **get_next_matches** : Récupérer les prochainns matchs des équipes du TFTT
 - **insta_downloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
 - **export_tableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
--  **flaskSlides/app.py** : Script permettant de faire tourner un serveur web sur la machine, incluant des commandes pour changer les diapositives à distance
+- **flaskSlides/app.py** : Script permettant de faire tourner un serveur web sur la machine, incluant des commandes pour changer les diapositives à distance (à partir d'un téléphone)
 
 Ajout de pylint et precommit pour l'analyse statique du code Python
 
@@ -92,6 +94,6 @@ Sur Chrome/Brave, aller dans gérer mes extensions :
 Scripts visant à la modification de feuilles GoogleSheet (Voir Extensions -> AppsScript)
 
 3 scripts : 
-- getData : Récupération de toutes les rencontres de la phase avec les joueurs pour les matches déjà joués
-- updateData : Met à jour les catégories et le brulâge selon les données de rencontres
-- utils : Scripts facilitant l'utilisation
+- **getData** : Récupération de toutes les rencontres de la phase avec les joueurs pour les matches déjà joués
+- **updateData** : Met à jour les catégories et le brulâge selon les données de rencontres
+- **utils** : Scripts facilitant l'utilisation (Suppression de colonnes)
