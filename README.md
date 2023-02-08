@@ -20,6 +20,7 @@ https://thorigne-tt.net/
 - **get_next_matches** : Récupérer les prochainns matchs des équipes du TFTT
 - **insta_downloader** : Télécharger des photos/vidéos depuis un profil instagram public (plutôt utiliser le script Shell associé). Bloqué après un trop grand nombre de requêtes.
 - **export_tableaux** : Script pour faire un fichier XLSX propre avec l'export CSV de la BDD pour le tournoi du club
+- **get_perf_proA.py** : Récupère les performances des joueurs de ProA
 - **flaskSlides/app.py** : Script permettant de faire tourner un serveur web sur la machine, incluant des commandes pour changer les diapositives à distance (à partir d'un téléphone)
 
 Ajout de pylint et precommit pour l'analyse statique du code Python
