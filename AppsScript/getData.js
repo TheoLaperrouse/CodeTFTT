@@ -28,3 +28,18 @@ function getMatchesWithJoueurs() {
     compteur += 1;
   })
 }
+
+function getProAStats(){
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('TestTheo');
+  var response = UrlFetchApp.fetch('http://54.154.202.254/proA', {'muteHttpExceptions': true});
+  var joueurs = JSON.parse(response.getContentText());
+  compteur = 2
+  joueurs.map(function(joueur) {
+    sheet.getRange(compteur,1).setValue(joueur[0]);
+    sheet.getRange(compteur,2).setValue(joueur[1]['vict']);
+    sheet.getRange(compteur,3).setValue(joueur[1]['matches']);
+    sheet.getRange(compteur,4).setValue(joueur[1]['win_ratio']);
+    compteur += 1
+  });
+}
