@@ -24,57 +24,41 @@ function updateDataPlayers() {
     compteur += 1;
   });
 }
-
 function updateBurnings() {
-  var now = new Date()
+  var now = new Date();
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   
   var sheetMatches = ss.getSheetByName('Rencontres');  
-  var maxRow = sheetMatches.getMaxRows()
-  let rencontres = sheetMatches.getRange(`A2:J${maxRow}`).getValues().filter(rencontre => rencontre[0] != '');
-  let brulageObject ={}
+  var maxRow = sheetMatches.getMaxRows();
+  var rencontres = sheetMatches.getRange(`A2:J${maxRow}`).getValues().filter(rencontre => rencontre[0] != '');
+  
+  var brulage = {};
+  var joueurs = ss.getSheetByName('Joueurs');  
+  var maxRow = joueurs.getMaxRows();
+  var nomJoueurs = joueurs.getRange(`A2:A${maxRow}`).getValues();
+  
+  deleteColumn(joueurs,'Q',maxRow);
 
   rencontres.forEach(function(rencontre) {
     if (now.valueOf() > rencontre[0].valueOf()) {
-      for(var joueur = 6; joueur <= 9; joueur = joueur + 1){
+      for(var joueur = 6; joueur <= 9; joueur++) {
         var nom = rencontre[joueur];
         var numeroEquipe = rencontre[2];
-        if(rencontre[joueur] !== ''){
-          if(!Object.keys(brulageObject).includes(nom)) {
-            brulageObject[nom] = [numeroEquipe]
-          }
-          else{
-            brulageObject[rencontre[joueur]].push(numeroEquipe)
+        if(nom !== '') {
+          if(!Object.keys(brulage).includes(nom)) {
+            brulage[nom] = [numeroEquipe];
+          } else {
+            brulage[nom].push(numeroEquipe);
           }
         }
       }
     }
-  })
+  });
 
-  brulage = {}
-
-  Object.keys(brulageObject).forEach(function(nom){
-    if(brulageObject[nom].length >= 2){
-      sorted = brulageObject[nom].sort(function(a,b){
-        return a - b
-      })
-      brulage[nom.trim()] = sorted[1]
+  nomJoueurs.forEach(function(nom, index) {
+    if(Object.keys(brulage).includes(nom[0])) {
+      var numeroEquipe = brulage[nom[0]].length >= 2 ? brulage[nom[0]].sort()[1] : '';
+      joueurs.getRange(index+2,17).setValue(numeroEquipe); 
     }
-  })
-
-  var joueurs = ss.getSheetByName('Joueurs');  
-  var maxRow = joueurs.getMaxRows()
-  var nomJoueurs = joueurs.getRange(`A2:A${maxRow}`).getValues();
-  
-  deleteColumn(joueurs,'Q',maxRow)
-
-  var compteur = 2;
-
-  nomJoueurs.forEach(function(nom){
-    if(Object.keys(brulage).includes(nom[0])){
-      joueurs.getRange(compteur,17).setValue(brulage[nom]); 
-    }
-    compteur += 1;
-  })
-
+  });
 }
