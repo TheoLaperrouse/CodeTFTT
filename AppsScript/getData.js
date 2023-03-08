@@ -1,33 +1,25 @@
 function getMatchesWithJoueurs() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName('Rencontres');
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Rencontres');
+  var compteur = 2
   const regex = /(THORIGNE-FOUILLARD TT)|(THORIGNE FOUILLARD TT)|^(THORIGNE TT)|^(TFTT)/;
-  const response = UrlFetchApp.fetch('https://tftt.barais.fr/teams/allmatches/phase=2/joueurs=true', {'muteHttpExceptions': true});
-  const matches = JSON.parse(response.getContentText());
-  const values = [];
-  matches.forEach(function(match) {
+  var response = UrlFetchApp.fetch('http://fastapifftt.thorigne-tt.net/matches/tftt', {'muteHttpExceptions': true});
+  var matches = JSON.parse(response.getContentText());
+  matches.map(function(match) {
     const numEquipe = match.equipeA.match(regex) ? match.equipeA.match(/\d+/g).join('') : match.equipeB.match(/\d+/g).join('')
     const numEquipeFinal =  match.equipeA.match(/^Féminines/) || match.equipeB.match(/^Féminines/)? parseInt(numEquipe) + 15 : numEquipe
     const equipe = `${match.equipeA.replace(regex, 'TFTT')} vs ${match.equipeB.replace(regex, 'TFTT')}`
-    const rowValues = [
-      match.date,
-      equipe,
-      numEquipeFinal,
-      match.equipeA.match(regex) ? 'Domicile' : 'Extérieur',
-      match.scoreA !== '' ? match.equipeA.match(regex) && match.scoreA >= match.scoreB ? 'TRUE' : 'FALSE' : '',
-      match.scoreA !== '' ? `${match.scoreA}/${match.scoreB}` : '',
-    ];
-    if (match.joueursA && match.equipeA.match(regex)) {
-      rowValues.push(...match.joueursA.slice(0, 4));
-    } else if (match.joueursB) {
-      rowValues.push(...match.joueursB.slice(0, 4));
+    const place = match.equipeA.match(regex) ? 'Domicile' : 'Extérieur';
+    sheet.getRange(compteur, 1, 1, 4).setValues([[match.date, equipe, numEquipeFinal,place]]);
+    if(match.scoreA !== ''){
+      const isEquipeAWinner = match.equipeA.match(regex) && match.scoreA >= match.scoreB;
+      const score = `${match.scoreA}/${match.scoreB}`;
+      const joueurs = match.equipeA.match(regex) ? match.joueursA : match.joueursB;
+      sheet.getRange(compteur, 5, 1, 4 + joueurs.length).setValues([[isEquipeAWinner ? 'TRUE' : 'FALSE', score, ...joueurs.slice(0, 4)]]);
     }
-    values.push(rowValues);
-  });
-  sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
-  supprProA()
+    compteur += 1;
+  })
 }
-
 function supprProA() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName('Rencontres');
