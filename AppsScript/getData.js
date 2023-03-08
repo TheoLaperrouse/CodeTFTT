@@ -6,16 +6,17 @@ function getMatchesWithJoueurs() {
   var response = UrlFetchApp.fetch('http://fastapifftt.thorigne-tt.net/matches/tftt', {'muteHttpExceptions': true});
   var matches = JSON.parse(response.getContentText());
   matches.map(function(match) {
-    const numEquipe = match.equipeA.match(regex) ? match.equipeA.match(/\d+/g).join('') : match.equipeB.match(/\d+/g).join('')
-    const numEquipeFinal =  match.equipeA.match(/^Féminines/) || match.equipeB.match(/^Féminines/)? parseInt(numEquipe) + 15 : numEquipe
-    const equipe = `${match.equipeA.replace(regex, 'TFTT')} vs ${match.equipeB.replace(regex, 'TFTT')}`
-    const place = match.equipeA.match(regex) ? 'Domicile' : 'Extérieur';
+    const TFTTEquipeA = match.equa.match(regex);
+    const numEquipe = TFTTEquipeA ? match.equa.match(/\d+/g).join('') : match.equb.match(/\d+/g).join('')
+    const numEquipeFinal =  match.equa.match(/^Féminines/) || match.equb.match(/^Féminines/)? parseInt(numEquipe) + 15 : numEquipe
+    const equipe = `${match.equa.replace(regex, 'TFTT')} vs ${match.equb.replace(regex, 'TFTT')}`
+    const place = TFTTEquipeA ? 'Domicile' : 'Extérieur';
     sheet.getRange(compteur, 1, 1, 4).setValues([[match.date, equipe, numEquipeFinal,place]]);
-    if(match.scoreA !== ''){
-      const isEquipeAWinner = match.equipeA.match(regex) && match.scoreA >= match.scoreB;
-      const score = `${match.scoreA}/${match.scoreB}`;
-      const joueurs = match.equipeA.match(regex) ? match.joueursA : match.joueursB;
-      sheet.getRange(compteur, 5, 1, 4 + joueurs.length).setValues([[isEquipeAWinner ? 'TRUE' : 'FALSE', score, ...joueurs.slice(0, 4)]]);
+    if(match.scorea != null){
+      const victory = (TFTTEquipeA && match.scorea > match.scoreb ) || (match.equb.match(regex) && match.scorea < match.scoreb);
+      const score = `${match.scorea}/${match.scoreb}`;
+      const joueurs = TFTTEquipeA ? match.joueursA : match.joueursB;
+      sheet.getRange(compteur, 5, 1, 4 + joueurs.length).setValues([[victory ? 'TRUE' : 'FALSE', score, ...joueurs.slice(0, 4)]]);
     }
     compteur += 1;
   })
