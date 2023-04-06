@@ -14,6 +14,12 @@ def reload_page():
     pyautogui.press('f11')
     return "Page refreshed"
 
+# For my Dell :
+#   with pyautogui.hold('fn'):
+#     pyautogui.press('f5')
+#     time.sleep(3)
+#     pyautogui.press('f11')
+
 
 @app.route("/slides/<number>")
 def go_to_slide(number):
